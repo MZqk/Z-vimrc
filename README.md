@@ -1,68 +1,14 @@
 
-#插件
+# 快捷鍵
+* <F1>  帮助
+* <F2>  显示行号
+* <F3>  目录树开关
+* <F4>  保存
+
+# 插件
 ## Vundle 插件管理
-```shell
-git clone https://github.com/VundleVim/Vundle.vim.git ~/.vim/bundle/nerdtree
-```
-### 添加至vimrc
-```
-"Vundle插件管理
-set nocompatible              " 去除VI一致性,必须要添加
-filetype off                  " 必须要添加
-
-" 设置包括vundle和初始化相关的runtime path
-set rtp+=~/.vim/bundle/Vundle.vim
-
-call vundle#begin()
-" 让vundle管理插件版本
-Plugin 'VundleVim/Vundle.vim'
-"
-"
-"
-"
-"
-"
-"
-"所有插件需要在下面这行上面
-"安装插件的方式可以使用本地、git及网络安装
-"示例
-"Plugin 'git://git.wincent.com/command-t.git'
-"Plugin 'file:///home/gmarik/path/to/plugin'
-"Plugin 'tpope/vim-fugitive'
-"重名插件
-"Plugin 'rstacruz/sparkup', {'rtp': 'vim/'}
-
-call vundle#end()            " required
-
-filetype plugin indent on    " required
-" 忽视插件改变缩进,可以使用以下替代:
-"filetype plugin on
-
-" 常用的命令
-" :PluginList       - 列出所有已配置的插件
-" :PluginInstall    - 安装插件,追加 `!` 用以更新或使用 :PluginUpdate 
-" :PluginSearch foo - 搜索 foo ; 追加 `!` 清除本地缓存
-" :PluginClean      - 除未使用插件,需要确认; 追加 `!` 自动批准移除未使用插件
-
-" :h vundle 查看帮助
-" 将你自己对非插件片段放在这行之后
-```
-
+## 使用说明
 ## NerdTree 目录树
-```
-" 设置NerdTree
-"Plugin 'scrooloose/nerdtree' 
-let NERDTreeWinPos='left'
-let NERDTreeWinSize=30
-map <F3> :NERDTreeToggle<CR>
-"默认开启NERDTree
-"autocmd VimEnter * NERDTree
-"当打开 NERDTree 窗口时，自动显示 Bookmarks
-let NERDTreeShowBookmarks=1
-" 是否显示隐藏文件
-let NERDTreeShowHidden=1
-```
-
 ### 使用说明
 ```
 ?: 快速帮助文档
@@ -93,4 +39,6 @@ f: 打开和关闭文件过滤器
 q: 关闭NERDTree
 A: 全屏显示NERDTree，或者关闭全屏
 ```
-
+## 自动补全
+## 色彩主题
+## 
