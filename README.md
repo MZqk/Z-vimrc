@@ -1,3 +1,14 @@
+> 本项目提供一些自认为实用的VIM插件，优点是不需要网络直接使用。
+
+安装方式
+```
+https://github.com/MZqk/Z-vimrc.git ~/
+```
+或者直接下载压缩包文件解压
+```
+cd Z-vimrc
+sh install.sh
+```
 
 # 快捷鍵
 * <F1>  帮助

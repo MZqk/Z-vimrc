@@ -1,7 +1,9 @@
+"编码设置
 set fileencodings=utf-8,gbk
 set termencoding=utf-8
 set encoding=utf-8
 
+"常规设置
 syntax on           "语法高亮
 set nocompatible    "关闭vi兼容模式
 set nu              "显示行号
@@ -15,27 +17,26 @@ set magic           "设置魔术
 set smartindent     "自动缩行
 set backspace=indent,eol,start
 set laststatus=2    "显示状态栏
-set bg=dark "暗色背景
-
-"history存储容量
-set history=2000
-
-"检测文件类型，采用不同的缩进格式
-filetype on
-filetype indent on
+set bg=dark         "暗色背景
+set history=2000    "history存储容量
+set t_ti= t_te=     "设置退出显示的内容
 set autoindent
-
-"备份设置
-"set backup
-"set backupext=.bak
-"set backupdir=~/.bak/
 
 "突出显示
 set cursorcolumn
 set cursorline
 
-"设置退出显示的内容
-set t_ti= t_te=
+"检测文件类型，采用不同的缩进格式
+filetype on
+filetype indent on
+filetype plugin indent on   
+" 忽视插件改变缩进,可以使用以下替代:
+"filetype plugin on
+
+"备份设置
+"set backup
+"set backupext=.bak
+"set backupdir=~/.bak/
 
 "显示状态栏内容
 set ruler
@@ -53,6 +54,9 @@ set ignorecase
 "map <Up> <Nop>
 "map <Down> <Nop>
 
+"==========================================================="
+"特殊设置
+"==========================================================="
 "python文件设置
 autocmd FileType python set tabstop=4 shiftwidth=4 expandtab ai
 func! DeleteTrailingWS()
@@ -69,25 +73,26 @@ function! AutoSetFileHead()
         if &filetype == 'sh'
                 call setline(1, "\#!/bin/bash")
         endif
-
         "如果文件类型为python
         if &filetype == 'python'
                 call setline(1,"\#!/usr/bin/envpython")
                 call append(1,"\#encoding:utf-8")
         endif
-        normal G
-        normal o
-        normal o
 endfunc
 
 "==========================================================="
-" 设置pydiction
+"功能键设置
 "==========================================================="
-let g:pydiction_location='~/.vim/bundle/pydiction/complete-dict' 
-"菜单高度
-let g:pydiction_menu_height = 3
-
+"<F1>帮助信息（默认设置）
 "<F2>开关行号
+nnoremap <F2> :call HideNumber()<CR>
+"<F3>开关目录树
+map <F3> :NERDTreeToggle<CR>
+"设置<F4>保存文件
+map <F4> :<ESC>:w<CR>
+
+
+
 function! HideNumber()
         if(&relativenumber == &number)
                 set relativenumber! number!
@@ -98,7 +103,23 @@ function! HideNumber()
         endif
                 set number?
 endfunc
-nnoremap <F2> :call HideNumber()<CR>
+
+
+
+"==========================================================="
+"插件设置
+"==========================================================="
+"pydiction 自动补全
+"NERDTree  目录树
+"Vundle    插件管理
+
+"==========================================================="
+" 设置pydiction
+"==========================================================="
+let g:pydiction_location='~/.vim/bundle/pydiction/complete-dict' 
+"菜单高度
+let g:pydiction_menu_height = 3
+
 
 "==========================================================="
 " 设置NerdTree
@@ -106,8 +127,6 @@ nnoremap <F2> :call HideNumber()<CR>
 "设置目录树位置
 let NERDTreeWinPos='left'
 let NERDTreeWinSize=30
-"<F3>开关目录树
-map <F3> :NERDTreeToggle<CR>
 "默认开启NERDTree
 "autocmd VimEnter * NERDTree
 "当打开 NERDTree 窗口时，自动显示 Bookmarks
@@ -115,20 +134,17 @@ let NERDTreeShowBookmarks=1
 " 是否显示隐藏文件
 let NERDTreeShowHidden=1
 
-"设置<F4>保存文件
-map <F4> :<ESC>:w<CR>
-
 "==========================================================="
 "Vundle插件管理
 "==========================================================="
 set nocompatible              " 去除VI一致性,必须要添加
 filetype off                  " 必须要添加
-
 " 设置包括vundle和初始化相关的runtime path
 set rtp+=~/.vim/bundle/Vundle.vim
 
-call vundle#begin()
 " 让vundle管理插件版本
+call vundle#begin()
+
 Plugin 'VundleVim/Vundle.vim'
 Plugin 'scrooloose/nerdtree'
 "
@@ -147,15 +163,5 @@ Plugin 'scrooloose/nerdtree'
 "重名插件
 "Plugin 'rstacruz/sparkup', {'rtp': 'vim/'}
 
-call vundle#end()            " required
+call vundle#end()
 
-filetype plugin indent on    " required
-" 忽视插件改变缩进,可以使用以下替代:
-"filetype plugin on
-
-" 常用的命令
-" :PluginList       - 列出所有已配置的插件
-" :PluginInstall    - 安装插件,追加 `!` 用以更新或使用 :PluginUpdate 
-" :PluginSearch foo - 搜索 foo ; 追加 `!` 清除本地缓存
-" :PluginClean      - 除未使用插件,需要确认; 追加 `!` 自动批准移除未使用插件
-" :h vundle 查看帮助
