@@ -53,20 +53,6 @@ set ignorecase
 "map <Up> <Nop>
 "map <Down> <Nop>
 
-
-"<F2>开关行号
-function! HideNumber()
-        if(&relativenumber == &number)
-                set relativenumber! number!
-        elseif(&number)
-                set number!
-        else
-                set relativenumber!
-        endif
-                set number?
-endfunc
-nnoremap <F2> :call HideNumber()<CR>
-
 "python文件设置
 autocmd FileType python set tabstop=4 shiftwidth=4 expandtab ai
 func! DeleteTrailingWS()
@@ -93,6 +79,27 @@ function! AutoSetFileHead()
         normal o
         normal o
 endfunc
+
+"==========================================================="
+" 设置pydiction
+"==========================================================="
+let g:pydiction_location='~/.vim/bundle/pydiction/complete-dict' 
+"菜单高度
+let g:pydiction_menu_height = 3
+
+"<F2>开关行号
+function! HideNumber()
+        if(&relativenumber == &number)
+                set relativenumber! number!
+        elseif(&number)
+                set number!
+        else
+                set relativenumber!
+        endif
+                set number?
+endfunc
+nnoremap <F2> :call HideNumber()<CR>
+
 "==========================================================="
 " 设置NerdTree
 "==========================================================="
@@ -108,7 +115,8 @@ let NERDTreeShowBookmarks=1
 " 是否显示隐藏文件
 let NERDTreeShowHidden=1
 
-
+"设置<F4>保存文件
+map <F4> :<ESC>:w<CR>
 
 "==========================================================="
 "Vundle插件管理
