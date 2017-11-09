@@ -2,7 +2,7 @@
 
 安装方式
 ```
-https://github.com/MZqk/Z-vimrc.git ~/
+git clone https://github.com/MZqk/Z-vimrc.git ~/
 ```
 或者直接下载压缩包文件解压
 ```
@@ -52,6 +52,6 @@ A: 全屏显示NERDTree，或者关闭全屏
 ```
 
 ## 自动补全
-
+### 使用说明
 ## 色彩主题 
  
