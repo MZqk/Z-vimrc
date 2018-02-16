@@ -1,7 +1,5 @@
 #!/bin/bash
-
-home=~/.vim/
-
-mv -f ./bundle/ $home
-mv -f vimrc $home
+mv -f ./bundle/ ~/.vim/bundle
+mv -f vimrc ~/.vim/vimrc
+cd ~/.vim/
 ln -s vimrc ~/.vimrc
